@@ -24,10 +24,10 @@ const Data = () => {
   return (
     <div style={{margin:"10px 20%"}}>
       <h1>News</h1>
-      {data.map((item) => {
+      {data?data.map((item,index) => {
         if(item.urlToImage)
         return (
-          <div className="news">
+          <div className="news" id = {index}>
             <Card
               style={{
                 display: "grid",
@@ -49,7 +49,7 @@ const Data = () => {
             </Card>
           </div>
         );
-      })}
+      }):<h1>Loading</h1>}
     </div>
   );
 };
