@@ -1,8 +1,37 @@
-# Getting Started with Create React App
+# News App is Basic News App Which Uses Flutter As A Backend To Authenticate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Project Is Deployed On [Deployed Project](https://newsappwithreactandnewsapi.netlify.app/).
+
+The Project Is Currently in building phase 
+
+Soon it will Have Following Features
+
+- Add To Favorites
+
+- Share
+
+- Search News Titles 
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 
