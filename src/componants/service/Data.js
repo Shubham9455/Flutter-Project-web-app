@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 const api_key = "b442ebb0e33946faa86665f2a136d83a";
 
-const url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=" + api_key;
+const url = "http://newsapi.org/v2/top-headlines?country=in&apiKey=" + api_key;
 
 export const data = () => {
   return <div>data</div>;
