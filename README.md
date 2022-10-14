@@ -1,6 +1,5 @@
 # News App is Basic News App Which Uses Flutter As A Backend To Authenticate
 
-This Project Is Deployed On [Deployed Project](https://newsappwithreactandnewsapi.netlify.app/).
 
 The Project Is Currently in building phase 
 
@@ -13,7 +12,14 @@ Soon it will Have Following Features
 - Search News Titles 
 
 
+# How To Run
 
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 <br/>
