@@ -34,7 +34,8 @@ const Data = () => {
                 gridTemplateColumns: "repeat(3,1fr)",
                 gridGap: "2rem",
                 gridAutoRows: "auto",
-                margin: "20px",
+                margin: "20px"
+                
               }}
             >
               <Card.Img style={{borderRadius:"8px" ,display:"block"}} variant="top" src={item.urlToImage} />

@@ -10,6 +10,7 @@ const Mynavbar = () => {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
+            <img  style={{height:"50px", margin:'auto 8px '}}src="/icons8-news-48.png"/>
           <Navbar.Brand href="#home">News App</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
