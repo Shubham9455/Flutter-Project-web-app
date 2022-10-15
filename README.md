@@ -1,7 +1,9 @@
 # News App is Basic News App Which Uses Flutter As A Backend To Authenticate
 
+[Deployed Site Link](https://newsapp-e6ljcdy1a-jaiswalji1155-gmailcom.vercel.app/)
 
 The Project Is Currently in building phase 
+
 
 Soon it will Have Following Features
 
