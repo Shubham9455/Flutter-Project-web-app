@@ -3,9 +3,6 @@ import { initializeApp } from "firebase/app";
 import {signInWithRedirect } from "firebase/auth";
 
 
-
-
-
 import { 
   GoogleAuthProvider,
   getAuth,
@@ -16,12 +13,14 @@ import {
   signOut,
 } from "firebase/auth";
 import {
-    getFirestore,
-    query,
-    getDocs,
-    collection,
-    where,
-    addDoc,
+  getFirestore,
+  query,
+  getDocs,
+  doc,
+  collection,
+  where,
+  addDoc,
+  setDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -103,6 +102,28 @@ const logout = () => {
   signOut(auth);
 };
 
+// const dbase = firebase.firestore();
+
+const addToFavourites = async (uid,title, image_url, link) => {
+  // await addDoc(collection(db, "userData"), {
+  //   uid: uid,
+  //   title: title,
+  //   image_url: image_url,
+  //   link: link,
+  // })
+  await setDoc(doc(db, "userData", title), {
+    title: title,
+    image_url: image_url,
+    link: link,
+  })
+  .then(() => {
+    console.log("Document written with ID: ", title);
+  })
+  .catch((error) => {
+    console.error("Error adding document: ", error);
+  })
+}
+
 
 export {
   auth,
@@ -111,4 +132,5 @@ export {
   logInWithEmailAndPassword,
   registerWithEmailAndPassword,
   logout,
+  addToFavourites,
 };

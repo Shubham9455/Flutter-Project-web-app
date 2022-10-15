@@ -2,13 +2,16 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-
+import { addToFavourites } from "../firebase_";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase_";
 const api_key = "pub_12307fb7955b1e1a3bcc5624d403e8b65582f";
 
 const url = "https://newsdata.io/api/1/news?apikey=" + api_key + "&country=in";
 
 const Data = () => {
   const [data, setData] = useState([]);
+  const [user, loading, error] = useAuthState(auth);
   const getData = async () => {
     const response = await fetch(url);
     const mydata = await response.json();
@@ -54,6 +57,19 @@ const Data = () => {
                     <Card.Text>{/* {item.description} */}</Card.Text>
                     <Button variant="primary" href={item.link}>
                       Visit Site
+                    </Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        addToFavourites(
+                          user.uid,
+                          item.title,
+                          item.image_url,
+                          item.link
+                        );
+                      }}
+                    >
+                      Add To Favorites
                     </Button>
                   </Card.Body>
                 </Card>

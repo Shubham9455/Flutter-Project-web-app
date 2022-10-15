@@ -8,7 +8,7 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "./firebase";
+} from "./firebase_";
 
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
