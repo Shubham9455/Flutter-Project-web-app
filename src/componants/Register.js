@@ -9,7 +9,8 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "./firebase_";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
@@ -19,7 +20,12 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/homepage");
+    if (user){ 
+      toast("Successfully Registered");
+      setTimeout(() => {
+        navigate("/homepage");
+      }, 1000);
+    }
   }, [user, loading]);
   const handleChange = (e) => {
     const name = e.target.name;
@@ -31,13 +37,13 @@ const Register = () => {
     e.preventDefault();
     if (person.password && person.email) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
-      console.log(newPerson);
       registerWithEmailAndPassword(person.email, person.password);
       setPerson({ password: "", email: "" });
     }
   };
   return (
     <>
+      <ToastContainer />
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
@@ -59,7 +65,6 @@ const Register = () => {
             <Form.Control
               type="email"
               placeholder="Enter email"
-              //   id="email"
               controlid="email"
               name="email"
               value={person.email}

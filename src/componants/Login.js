@@ -9,42 +9,43 @@ import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase_";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 
-
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
-    const [person, setPerson] = useState({email: "",password:""});
-    const [user, loading, error] = useAuthState(auth);
-    const navigate = useNavigate();
-    const handleChange = (e) => {
-      const name = e.target.name;
-      const value = e.target.value;
-      setPerson({ ...person, [name]: value });
-    };
+  const [person, setPerson] = useState({ email: "", password: "" });
+  const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setPerson({ ...person, [name]: value });
+  };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (person.password && person.email) {
-        const newPerson = { ...person, id: new Date().getTime().toString() };
-        console.log(newPerson);
-        logInWithEmailAndPassword(person.email, person.password);
-        setPerson({ password: "", email: ""});
-      }
-    };
-    useEffect(() => {
-      if (loading) {
-        // maybe trigger a loading screen
-        return ;
-      }
-      if (user) {
-        console.log("going");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast("Login Successful");
+    if (person.password && person.email) {
+      const newPerson = { ...person, id: new Date().getTime().toString() };
+      logInWithEmailAndPassword(person.email, person.password);
+      setPerson({ password: "", email: "" });
+    }
+  };
+  useEffect(() => {
+    if (loading) {
+      return;
+    }
+    if (user) {
+      toast("Login Successful");
+      setTimeout(() => {
         navigate("/homepage");
-    };
-    }, [user, loading]);
-    console.log(user);
+      }
+      , 1000);
+    }
+  }, [user, loading]);
   return (
     <>
+      <ToastContainer />
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
@@ -88,14 +89,6 @@ function Login() {
           <Button variant="primary" type="submit" onClick={handleSubmit}>
             Login
           </Button>
-          {/* <Button
-            style={{ margin: "20px 20%" }}
-            variant="primary"
-            type="submit"
-            onClick={signInWithGoogle}
-          >
-            Login with Google
-          </Button> */}
         </Form>
       </div>
     </>

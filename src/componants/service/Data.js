@@ -10,10 +10,11 @@ import { query, collection, getDocs, where, doc } from "firebase/firestore";
 import { Dots, Spinner, Waves } from "loading-animations-react";
 
 import { BoxLoading, BabelLoading } from "react-loadingg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
-
-const api_key = "pub_12329637d0fd446d8358f257a59c283f4b5a0";
+const api_key = "pub_123366c84c35ed5025b54c063a93d1a40f44c";
 
 // const old_url =
 
@@ -28,10 +29,7 @@ const Data = (props) => {
     console.log("Fetching Data");
     const response = await fetch(url);
     const mydata = await response.json();
-    console.log("hello");
-    console.log(mydata.results);
     setData(mydata.results);
-    console.log(mydata.results);
   };
   const getFavorites = async () => {
     console.log("Fetching Favorite Data");
@@ -46,26 +44,22 @@ const Data = (props) => {
   };
 
   useEffect(() => {
-    if (loading) return;
-    if (!user) {
-      console.log("Loging Out");
-      navigate("/");
-    }
     if (favbutton) {
       console.log("getting favs");
       getFavorites();
     } else {
       getData();
     }
-  }, [user,loading,favbutton]);
+  }, [favbutton]);
 
   return !loading ? (
     <div style={{ margin: "10px 20%" }}>
+      <ToastContainer />
       {data ? (
         data.map((item, index) => {
           if (1)
             return (
-              <div className="news" id={index}>
+              <div className="news" key={index}>
                 <Card
                   style={{
                     display: "grid",

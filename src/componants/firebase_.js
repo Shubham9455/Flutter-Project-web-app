@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 import {signInWithRedirect } from "firebase/auth";
-
+import { ToastContainer, toast } from "react-toastify";
 
 import { 
   GoogleAuthProvider,
@@ -93,7 +93,7 @@ const registerWithEmailAndPassword = async (email, password) => {
     });
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    toast(err.message);
   }
 };
 
