@@ -111,7 +111,7 @@ const addToFavourites = async (uid,title, image_url, link) => {
   //   image_url: image_url,
   //   link: link,
   // })
-  await setDoc(doc(db, "userData", title), {
+  await setDoc(doc(db, "userData",uid,"title",title), {
     title: title,
     image_url: image_url,
     link: link,
