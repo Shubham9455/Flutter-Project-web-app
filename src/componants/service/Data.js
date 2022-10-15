@@ -22,7 +22,7 @@ const url = "https://newsdata.io/api/1/news?apikey=" + api_key + "&country=in";
 const Data = (props) => {
   const navigate = useNavigate();
   const { favbutton, uid } = props;
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(false);
   const [user, loading, error] = useAuthState(auth);
   const getData = async () => {
     console.log("Fetching Data");
@@ -57,12 +57,10 @@ const Data = (props) => {
     } else {
       getData();
     }
-  }, [user,loading]);
+  }, [user,loading,favbutton]);
 
   return !loading ? (
     <div style={{ margin: "10px 20%" }}>
-
-
       {data ? (
         data.map((item, index) => {
           if (1)
@@ -131,12 +129,15 @@ const Data = (props) => {
             );
         })
       ) : (
-        <h1>Loading</h1>
+        <div style={{ marginTop: "20rem" }}>
+          <BoxLoading size="large"></BoxLoading>
+          {/* <Dots text="Loading..." style={{ marginTop: "20rem" }} /> */}
+        </div>
       )}
     </div>
   ) : (
     <div style={{ marginTop: "20rem" }}>
-      <BoxLoading size = "large"></BoxLoading>
+      <BoxLoading size="large"></BoxLoading>
       {/* <Dots text="Loading..." style={{ marginTop: "20rem" }} /> */}
     </div>
   );
