@@ -14,27 +14,32 @@ import { Dots } from "loading-animations-react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import HeroSection from "./HeroSection";
 
 const HomePage = () => {
-    const [user, loading, error] = useAuthState(auth);
-    const [favbutton, setFavbutton] = useState(false);
-    const navigate = useNavigate();
-    useEffect(() => {
-      if (loading) return;
-      if (!user){
-        toast("Loging Out");
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      };
-    }, [user, loading]);
-
+  const [user, loading, error] = useAuthState(auth);
+  const [favbutton, setFavbutton] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (loading) return;
+    if (!user) {
+      toast("Loging Out");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    }
+  }, [user, loading]);
 
   return (
     <div>
       <ToastContainer></ToastContainer>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        style={{ position: "fixed", width: "100%", zIndex: "1" }}
+      >
         <Container>
           <img
             style={{ height: "50px", margin: "auto 8px " }}
@@ -50,8 +55,7 @@ const HomePage = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-            </Nav>
+            <Nav className="me-auto"></Nav>
             <Nav>
               <Nav.Link
                 onClick={() => {
@@ -67,15 +71,15 @@ const HomePage = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <HeroSection favbutton = {favbutton}/>
       <div>
-        <Data favbutton={favbutton} uid = {user?user.uid:""} />
+        <Data favbutton={favbutton} uid={user ? user.uid : ""} />
       </div>
     </div>
   );
 };
 
 export default HomePage;
-
 
 function ImageAndTextExample() {
   return (

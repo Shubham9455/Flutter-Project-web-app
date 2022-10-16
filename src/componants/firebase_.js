@@ -102,15 +102,8 @@ const logout = () => {
   signOut(auth);
 };
 
-// const dbase = firebase.firestore();
 
 const addToFavourites = async (uid,title, image_url, link) => {
-  // await addDoc(collection(db, "userData"), {
-  //   uid: uid,
-  //   title: title,
-  //   image_url: image_url,
-  //   link: link,
-  // })
   await setDoc(doc(db, "userData",uid,"title",title), {
     title: title,
     image_url: image_url,

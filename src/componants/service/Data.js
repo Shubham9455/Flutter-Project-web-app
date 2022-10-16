@@ -31,6 +31,7 @@ const Data = (props) => {
     const mydata = await response.json();
     setData(mydata.results);
   };
+  
   const getFavorites = async () => {
     console.log("Fetching Favorite Data");
     const newData = [];
