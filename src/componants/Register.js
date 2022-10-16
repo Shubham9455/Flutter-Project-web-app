@@ -20,13 +20,14 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
-    if (user){ 
+    if (user) {
       toast("Successfully Registered");
       setTimeout(() => {
         navigate("/homepage");
       }, 1000);
     }
   }, [user, loading]);
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -36,7 +37,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (person.password && person.email) {
-      const newPerson = { ...person, id: new Date().getTime().toString() };
       registerWithEmailAndPassword(person.email, person.password);
       setPerson({ password: "", email: "" });
     }
@@ -44,21 +44,42 @@ const Register = () => {
   return (
     <>
       <ToastContainer />
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
         <Container>
           <Nav className="me-auto">
             <h1 style={{ color: "white" }}>Register</h1>
-            <Button
-              variant="success"
-              style={{ marginBlockEnd: "10px", marginLeft: "100%" }}
-              onClick={() => navigate("/")}
-            >
-              Login
-            </Button>
           </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto"></Nav>
+            <Nav>
+              <Button
+                variant="dark"
+                style={{
+                  margin: "10px 0px",
+                  border: "3px solid white",
+                  padding: "5px",
+                }}
+                onClick={() => navigate("/")}
+              >
+                <span style={{ fontSize: "0.8rem", paddingLeft: "10px" }}>
+                  Already Registerd ?
+                </span>
+                <span style={{ fontSize: "1.2rem", paddingRight: "10px" }}>
+                  {" "}
+                  Login
+                </span>
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div>
+      <img
+        src="/assets/undraw_Login_re_4vu2.png"
+        alt="Login"
+        style={{ objectFit: "cover", position: "fixed", zIndex: "-1" }}
+      />
+      <div style={{ margin: "20%" }}>
         <Form style={{ margin: "20px 20%" }}>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email address</Form.Label>

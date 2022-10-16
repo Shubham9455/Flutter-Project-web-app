@@ -39,28 +39,50 @@ function Login() {
       toast("Login Successful");
       setTimeout(() => {
         navigate("/homepage");
-      }
-      , 1000);
+      }, 1000);
     }
   }, [user, loading]);
   return (
     <>
       <ToastContainer />
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg">
         <Container>
           <Nav className="me-auto">
             <h1 style={{ color: "white" }}>Login</h1>
-            <Button
-              variant="success"
-              style={{ marginBlockEnd: "10px", marginLeft: "100%" }}
-              onClick={() => navigate("/register")}
-            >
-              Register
-            </Button>
           </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto"></Nav>
+            <Nav>
+              <Button
+                variant="dark"
+                style={{
+                  // right: "5%",
+                  margin: "10px 0px",
+                  border: "3px solid white",
+                  padding: "5px",
+                }}
+                onClick={() => navigate("/register")}
+              >
+                
+                <span style={{ fontSize: "0.8rem", paddingLeft: "10px" }}>
+                  Not Registered ?
+                </span>
+                <span style={{ fontSize: "1.2rem", paddingRight: "10px" }}>
+                  {" "}
+                  Register
+                </span>
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div>
+      <img
+        src="/assets/undraw_Login_re_4vu2.png"
+        alt="Login"
+        style={{ objectFit: "cover", position: "fixed", zIndex: "-1" }}
+      />
+      <div style={{ margin: "20%" }}>
         <Form style={{ margin: "20px 20%" }}>
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email address</Form.Label>
@@ -86,7 +108,15 @@ function Login() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <Button
+            variant="primary"
+            style={{
+              border: "10px double black",
+              padding: "5px 30px",
+            }}
+            type="submit"
+            onClick={handleSubmit}
+          >
             Login
           </Button>
         </Form>
