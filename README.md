@@ -8,7 +8,7 @@ The Project Is Currently in building phase
 
 ## It has Following Features
 
-- Add To Favorites
+- Add To Favourites
 
 - Email Login And Register
 
