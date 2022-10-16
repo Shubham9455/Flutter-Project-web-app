@@ -45,13 +45,17 @@ const Data = (props) => {
   };
 
   useEffect(() => {
+    if(props.livetvButton){
+      setData([]);
+      return;
+    }
     if (favbutton) {
       console.log("getting favs");
       getFavorites();
     } else {
       getData();
     }
-  }, [favbutton]);
+  }, [favbutton,props.livetvButton]);
 
   return !loading ? (
     <div style={{ margin: "10px 20%" }}>

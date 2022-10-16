@@ -4,6 +4,7 @@ import "./HeroSection.css";
 
 function HeroSection(prop) {
   const favbutton = prop.favbutton;
+  const livetvButton = prop.livetvButton;
   return (
     <div className={"hero-container"}>
       <video
@@ -13,8 +14,16 @@ function HeroSection(prop) {
         loop
         muted
       />
-      <h1>Read Good</h1>
-      <p>Scroll Down To Get {favbutton?"Your Favorites":"Top Headlines"}</p>
+      <h1>
+        {livetvButton ? "Watch " : "Read "}
+        Good
+      </h1>
+      <p>
+        Scroll Down To{" "}
+        {livetvButton
+          ? "Watch Live TV"
+          : "Get " + (favbutton ? "Your Favorites" : "Top Headlines")}
+      </p>
     </div>
   );
 }

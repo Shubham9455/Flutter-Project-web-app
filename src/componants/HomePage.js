@@ -15,10 +15,12 @@ import { Dots } from "loading-animations-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeroSection from "./HeroSection";
+import LiveTV from "./LiveTV";
 
 const HomePage = () => {
   const [user, loading, error] = useAuthState(auth);
   const [favbutton, setFavbutton] = useState(false);
+  const [livetvButton, setLivetvButton] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     if (loading) return;
@@ -28,81 +30,79 @@ const HomePage = () => {
         navigate("/");
       }, 2000);
     }
-  }, [user, loading]);
+  }, [user, loading,livetvButton]);
 
   return (
-    <div>
-      <ToastContainer></ToastContainer>
-      <Navbar
-        collapseOnSelect
-        expand="lg"
-        bg="dark"
-        variant="dark"
-        style={{ position: "fixed", width: "100%", zIndex: "1" }}
-      >
-        <Container>
-          <img
-            style={{ height: "50px", margin: "auto 8px " }}
-            src="/icons8-news-48.png"
-          />
-          <Navbar.Brand
-            href="#home"
-            onClick={() => {
-              setFavbutton(false);
-            }}
-          >
-            News App
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto"></Nav>
-            <Nav>
-              <Nav.Link
-                onClick={() => {
-                  setFavbutton(true);
-                }}
-              >
-                Favorites
-              </Nav.Link>
-              <Button variant="primary" type="submit" onClick={logout}>
-                LogOut
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <HeroSection favbutton = {favbutton}/>
+    <>
       <div>
-        <Data favbutton={favbutton} uid={user ? user.uid : ""} />
+        <ToastContainer></ToastContainer>
+        <Navbar
+          collapseOnSelect
+          expand="lg"
+          bg="dark"
+          variant="dark"
+          style={{ position: "fixed", width: "100%", zIndex: "1" }}
+        >
+          <Container>
+            <img
+              style={{ height: "50px", margin: "auto 8px " }}
+              src="/icons8-news-48.png"
+            />
+            <Navbar.Brand
+              href="#home"
+              onClick={() => {
+                setFavbutton(false);
+                setLivetvButton(false);
+              }}
+            >
+              News App
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto"></Nav>
+              <Nav>
+                <Nav.Link
+                  onClick={() => {
+                    setFavbutton(false);
+                    setLivetvButton(true);
+                  }}
+                >
+                  Live Tv
+                </Nav.Link>
+
+                <Nav.Link
+                  onClick={() => {
+                    setLivetvButton(false);
+                    setFavbutton(true);
+                  }}
+                >
+                  Favorites
+                </Nav.Link>
+                <Button variant="primary" type="submit" onClick={logout}>
+                  LogOut
+                </Button>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
       </div>
-    </div>
+      <div>
+        <div>
+          <HeroSection favbutton={favbutton} livetvButton={livetvButton} />
+          <div>
+            {livetvButton && <LiveTV />}
+            <Data
+              favbutton={favbutton}
+              livetvButton={livetvButton}
+              uid={user ? user.uid : ""}
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default HomePage;
 
-function ImageAndTextExample() {
-  return (
-    <>
-      <Card>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
-      <br />
-      <Card>
-        <Card.Body>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-        <Card.Img variant="bottom" src="holder.js/100px180" />
-      </Card>
-    </>
-  );
-}
+

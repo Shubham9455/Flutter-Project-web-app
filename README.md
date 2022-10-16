@@ -18,6 +18,8 @@ The Project Is Currently in building phase
 
 - Animations
 
+- Watch Live News From YT
+
 
 
 Soon it will Have Following Features
