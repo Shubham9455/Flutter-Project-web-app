@@ -24,7 +24,6 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast("Login Successful");
     if (person.password && person.email) {
       const newPerson = { ...person, id: new Date().getTime().toString() };
       logInWithEmailAndPassword(person.email, person.password);
@@ -39,7 +38,7 @@ function Login() {
       toast("Login Successful");
       setTimeout(() => {
         navigate("/homepage");
-      }, 1000);
+      }, 2000);
     }
   }, [user, loading]);
   return (
