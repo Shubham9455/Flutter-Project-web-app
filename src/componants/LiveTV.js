@@ -1,8 +1,9 @@
 import React from 'react'
+import { FaTv } from "react-icons/fa";
 
 const LiveTV = () => {
   return (
-    <div style={{maxWidth:"100%",zIndex:"1"}}>
+    <div style={{ maxWidth: "100%", zIndex: "1" }}>
       <h1
         style={{
           border: "8px solid green",
@@ -16,14 +17,20 @@ const LiveTV = () => {
           padding: "4px 8px",
           backgroundColor: "red",
           maxWidth: "30%",
-          color:"white"
+          color: "white",
         }}
       >
+        <FaTv style={{margin:"auto 20px"  } }/>
         Live TV
       </h1>
       <div
         class="ratio ratio-16x9"
-        style={{ maxHeight:"60%",maxWidth: "70%", margin: "auto", marginBottom: "200px" }}
+        style={{
+          maxHeight: "60%",
+          maxWidth: "70%",
+          margin: "auto",
+          marginBottom: "200px",
+        }}
       >
         <iframe
           width="960"

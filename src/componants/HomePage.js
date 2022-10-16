@@ -11,7 +11,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Button } from "react-bootstrap";
 import { Dots } from "loading-animations-react";
-
+import { FaTv } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeroSection from "./HeroSection";
@@ -67,6 +67,7 @@ const HomePage = () => {
                     setLivetvButton(true);
                   }}
                 >
+                  <FaTv style={{ margin: "auto 20px" }} />
                   Live Tv
                 </Nav.Link>
 
