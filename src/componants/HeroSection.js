@@ -22,7 +22,7 @@ function HeroSection(prop) {
         Scroll Down To{" "}
         {livetvButton
           ? "Watch Live TV"
-          : "Get " + (favbutton ? "Your Favorites" : "Top Headlines")}
+          : "Get " + (favbutton ? "Your Favourites" : "Top Headlines")}
       </p>
     </div>
   );

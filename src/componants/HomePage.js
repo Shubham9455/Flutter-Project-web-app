@@ -77,7 +77,7 @@ const HomePage = () => {
                     setFavbutton(true);
                   }}
                 >
-                  Favorites
+                  Favourites
                 </Nav.Link>
                 <Button variant="primary" type="submit" onClick={logout}>
                   LogOut

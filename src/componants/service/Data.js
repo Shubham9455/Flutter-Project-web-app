@@ -33,7 +33,7 @@ const Data = (props) => {
   };
   
   const getFavorites = async () => {
-    console.log("Fetching Favorite Data");
+    console.log("Fetching Favourite Data");
     const newData = [];
     const docSnap = await getDocs(collection(db, "userData", uid, "title"));
     console.log(docSnap);
@@ -117,7 +117,7 @@ const Data = (props) => {
                             );
                         }}
                       >
-                        Add To Favorites
+                        Add To Favourites
                       </Button>
                     ) : (
                       <></>
