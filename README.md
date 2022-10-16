@@ -1,5 +1,7 @@
 # News App is Basic News App Which Uses Flutter As A Backend To Authenticate
-
+<p align="start">
+  <img src="https://github.com/Shubham9455/React-Project-web-app/blob/master/public/icons8-news-480.png" width="150" height="200" title="hover text">
+</p>
 [Deployed Site Link](https://newsapp-e6ljcdy1a-jaiswalji1155-gmailcom.vercel.app/)
 
 The Project Is Currently in building phase
