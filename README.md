@@ -2,12 +2,21 @@
 
 [Deployed Site Link](https://newsapp-e6ljcdy1a-jaiswalji1155-gmailcom.vercel.app/)
 
-The Project Is Currently in building phase 
+The Project Is Currently in building phase
+
+It has Following Features
+
+- Add To Favorites
+
+- Email Login And Register
+
+- Attractive UI UX
+
+- Animations
+
 
 
 Soon it will Have Following Features
-
-- Add To Favorites
 
 - Share
 
