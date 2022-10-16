@@ -22,7 +22,9 @@ Soon it will Have Following Features
 
 - Share
 
-- Search News Titles 
+- Search News Titles
+
+- Google Authentication
 
 
 # How To Run
